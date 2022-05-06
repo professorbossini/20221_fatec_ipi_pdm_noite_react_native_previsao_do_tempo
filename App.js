@@ -14,6 +14,7 @@ import{
 
 export default function App() {
   const [cidade, setCidade] = useState('')
+  const [previsoes, setPrevisoes] = useState([])
   const capturarCidade = (cidadeDigitada) => {
     setCidade(cidadeDigitada)
   }
@@ -35,7 +36,14 @@ export default function App() {
 
       </View>
       {/* exibição das previsões */}
-      <FlatList />
+      <FlatList 
+        data={previsoes}
+        renderItem={
+          p => (
+            <Text>{JSON.stringify(p)}</Text>
+          )
+        }
+      />
 
       
     </View>
