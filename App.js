@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { 
   Button,
   FlatList,
@@ -12,6 +13,10 @@ import{
 } from '@env'
 
 export default function App() {
+  const [cidade, setCidade] = useState('')
+  const capturarCidade = (cidadeDigitada) => {
+    setCidade(cidadeDigitada)
+  }
   return (
     <View style={styles.container}>
 
@@ -20,7 +25,9 @@ export default function App() {
         {/* View para a entrada de dados */}
         <TextInput 
           style={styles.cidadeTextInput}
-          placeholder="Digite o nome da cidade"      
+          placeholder="Digite o nome da cidade"
+          value={cidade}
+          onChangeText={capturarCidade}      
         />
         <Button 
           title="OK"
