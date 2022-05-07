@@ -9,7 +9,12 @@ import {
 } from 'react-native';
 
 import{
-  LANGUAGE
+  PROTOCOL,
+  BASE_URL,
+  UNITS,
+  CNT,
+  LANGUAGE,
+  APPID
 } from '@env'
 
 export default function App() {
@@ -17,6 +22,11 @@ export default function App() {
   const [previsoes, setPrevisoes] = useState([])
   const capturarCidade = (cidadeDigitada) => {
     setCidade(cidadeDigitada)
+  }
+
+  const obterPrevisoes = () => {
+    const url = encodeURI(`${PROTOCOL}://${BASE_URL}?units=${UNITS}&cnt=${CNT}&lang=${LANGUAGE}&appid=${APPID}&q=${cidade}`)
+    console.log(url)
   }
   return (
     <View style={styles.container}>
@@ -32,6 +42,7 @@ export default function App() {
         />
         <Button 
           title="OK"
+          onPress={obterPrevisoes}
         />
 
       </View>
