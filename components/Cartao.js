@@ -4,11 +4,13 @@ import React from 'react'
 const Cartao = (props) => {
   return (
     <View
-        style={{...styles.cartao, ...props.estilos}}>
+        style={{...styles.cartao, ...props.meusEstilos}}>
       {props.children}
     </View>
   )
 }
+
+
 
 export default Cartao
 
