@@ -27,6 +27,9 @@ export default function App() {
   const obterPrevisoes = () => {
     const url = encodeURI(`${PROTOCOL}://${BASE_URL}?units=${UNITS}&cnt=${CNT}&lang=${LANGUAGE}&appid=${APPID}&q=${cidade}`)
     console.log(url)
+    fetch(url)
+    .then (response => response.json())
+    .then(dados => setPrevisoes(dados['list']))
   }
   return (
     <View style={styles.container}>
