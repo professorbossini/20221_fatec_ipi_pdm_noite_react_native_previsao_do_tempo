@@ -17,6 +17,8 @@ import{
   APPID
 } from '@env'
 
+import PrevisaoItem from './components/PrevisaoItem';
+
 export default function App() {
   const [cidade, setCidade] = useState('')
   const [previsoes, setPrevisoes] = useState([])
@@ -50,14 +52,17 @@ export default function App() {
 
       </View>
       {/* exibição das previsões */}
-      <FlatList 
-        data={previsoes}
-        renderItem={
-          p => (
-            <Text>{JSON.stringify(p)}</Text>
-          )
-        }
-      />
+      <View
+        style={{alignItems: 'center'}}>
+        <FlatList 
+          data={previsoes}
+          renderItem={
+            p => (
+              <PrevisaoItem previsao={p.item}/>
+            )
+          }
+        />
+      </View>
 
       
     </View>
